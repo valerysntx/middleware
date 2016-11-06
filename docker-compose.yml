@@ -1,0 +1,13 @@
+
+version: '2'
+
+services:
+  redux:
+    image: redux:latest
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000

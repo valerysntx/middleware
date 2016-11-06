@@ -1,16 +1,19 @@
 ## Stack
 
-`server.js` => http:`3000` => babel/transform/proxy => [API server](#api-server) @ `localhost:3030`
-  - `server.js` will proxify requests to `/api/*` 
+docker => `server.js` @ http:`3000` => babel/transform/proxy => [API server](#api-server) @ `localhost:3030`
+  - `server.js` will proxify requests to `/api/*`
+   
   - data fetching calls from the client go to `/api/*`.
   - static content from `/static`
 
 ## Why? 
 
-- hydration middleware
+- data hydration middleware
+- ApiClient for both client / server
 - one repo per one app => api + client
-- check: yarn why redux
-
+```
+yarn why redux
+```
 * [React](https://github.com/facebook/react)
 * [React Router](https://github.com/reactjs/react-router)
 * [Express](http://expressjs.com)
@@ -94,7 +97,8 @@ We also spit out the `redux` state into a global `window.__data` variable in the
 
 #### Server-side Data Fetching
 
-The [redux-connect](https://www.npmjs.com/package/redux-connect) package exposes an API to return promises that need to be fulfilled before a route is rendered. It exposes a `<ReduxAsyncConnect />` container, which wraps our render tree on both [server](https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/server.js) and [client](https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/client.js). More documentation is available on the [redux-connect](https://www.npmjs.com/package/redux-connect) page.
+The [redux-connect](https://www.npmjs.com/package/redux-connect) package exposes an API to return promises that need to be fulfilled before a route is rendered. It exposes a `<ReduxAsyncConnect />` container, which wraps our render tree on both [server](https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/server.js) and [client] (client.js). 
+More documentation is available on the [redux-connect](https://www.npmjs.com/package/redux-connect) page.
 
 #### Client Side
 
@@ -102,10 +106,16 @@ The client side entry point is reasonably named `client.js`. All it does is load
 
 #### Redux Middleware
 
-The middleware, [`clientMiddleware.js`](https://github.com/bertho-zero/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js), serves two functions:
+The middleware, [`clientMiddleware.js`](clientMiddleware.js), serves two functions:
 
-1. To allow the action creators access to the client API facade. Remember this is the same on both the client and the server, and cannot simply be `import`ed because it holds the cookie needed to maintain session on server-to-server requests.
-2. To allow some actions to pass a "promise generator", a function that takes the API client and returns a promise. Such actions require three action types, the `REQUEST` action that initiates the data loading, and a `SUCCESS` and `FAILURE` action that will be fired depending on the result of the promise. There are other ways to accomplish this, some discussed [here](https://github.com/reactjs/redux/issues/99), which you may prefer, but to the author of this example, the middleware way feels cleanest.
+1. To allow the action creators access to the client API facade. Remember this is the same 
+  on both the client and the server, and cannot simply be `import`ed because it holds the cookie needed to maintain session on server-to-server requests.
+2. To allow some actions to pass a "promise generator", a function that takes the API client 
+  and returns a promise. Such actions require three action types, 
+    * the `REQUEST` action that initiates the data loading, 
+    * a `SUCCESS` and `FAILURE` action that will be fired depending on the result of the promise.
+    * another approach were discussed [here](https://github.com/reactjs/redux/issues/99),
+3. middleware way feels cleanest
 
 #### Redux Modules
 

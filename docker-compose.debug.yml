@@ -1,0 +1,18 @@
+
+version: '2'
+
+services:
+  redux:
+    image: redux:latest
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3000:3000
+      - 5858:5858
+    volumes:
+      - .:/usr/src/app
+    ## set your startup file here
+    command: node --debug=5858 app.js
