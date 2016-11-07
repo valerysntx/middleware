@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["C:/Users/valer/redux/static/dist/index.html","4f44d98548adeac3cebc2fc8bee9c0b8"],["C:/Users/valer/redux/static/dist/main-d811ab13780cabf5d312.css","e0594cbff1d36a8020d56779b6a08934"],["C:/Users/valer/redux/static/dist/main-d811ab13780cabf5d312.js","cd28c30d0876bd37007f0951d2f8da7a"]];
+var precacheConfig = [["C:/Users/valer/redux/static/dist/index.html","3acfa3a854e0a27a8b4b32abbf2e4f8d"],["C:/Users/valer/redux/static/dist/main-f1edb6863368d6a70008.css","5f3f99208c435b2dd02765a5c8b6b003"],["C:/Users/valer/redux/static/dist/main-f1edb6863368d6a70008.js","1b0a547f31a556446e3fc198cb6721ec"]];
 var cacheName = 'sw-precache-v2-redux-' + (self.registration ? self.registration.scope : '');
 
 

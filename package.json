@@ -1,6 +1,6 @@
 {
   "name": "redux",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "isomorphic redux socket-io chat / fullstack",
   "keywords": [
     "react",
@@ -107,7 +107,19 @@
     "serialize-javascript": "*",
     "react-bootstrap": "*",
     "react-router-bootstrap": "*",
-    "bootstrap-sass": "^3.3.7"
+    "bootstrap-sass": "^3.3.7",
+    
+    "redux-persist": "^4.0.0-alpha7",
+    "lru-memoize": "^1.0.1",
+    "autoprefixer": "^6.5.2",
+    "feathers-authentication":"^0.7.11",
+    "feathers-socketio":"^1.4.2",
+    "feathers-hooks":"^1.6.1",
+    "feathers-rest": "^1.5.1",
+    
+    "js-cookie":"^2.1.3",
+    "localforage":"^1.4.3",
+    "sass":"^0.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -128,6 +140,7 @@
     "font-awesome-webpack": "^0.0.4",
     "html-webpack-plugin": "2.24.1",
     "html-webpack-plugin-extra-files": "1.4.0",
+    "piping":"^1.0.0-rc.4",
     "karma": "^1.3.0",
     "karma-babel-polyfill": "0.0.5",
     "karma-chrome-selfclosing-launcher": "^0.0.1",
